@@ -17,5 +17,14 @@
  * 
  */
 module.exports = ( length ) => {
-
+	const fizzBuzzArray = [];
+	if (typeof length !== 'number' || length < 1) return fizzBuzzArray;
+	for (let i = 1; i <= length; i++) {
+		let testInput = '';
+		if (i % 3 === 0) testInput += 'fizz';
+		if (i % 5 === 0) testInput += 'buzz';
+		const actualInput = testInput === '' ? i : testInput;
+		fizzBuzzArray.push(actualInput);
+	}
+	return fizzBuzzArray;
 };
