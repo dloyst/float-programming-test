@@ -15,4 +15,15 @@
  */
 module.exports = ( input, test ) => {
 
+	const truthyValues = [];
+	
+	if (!Array.isArray(input)) return truthyValues;
+	if (typeof test !== 'function') return truthyValues;
+
+  for (let i = 0; i < input.length; i++) {
+    if (!Array.isArray(input[i]) && typeof input[i] !== 'object') {
+      if (test(input[i])) truthyValues.push(input[i]);
+    }
+  }
+  return truthyValues;
 };
