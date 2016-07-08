@@ -18,14 +18,24 @@
  */
 module.exports = ( length ) => {
 
+	// stack for output
 	const fizzBuzzArray = [];
 
+	// edge cases making sure arguments are proper type
 	if (typeof length !== 'number' || length < 1) return fizzBuzzArray;
 
+	// start at 1 so no 0's, and loop up to length value
 	for (let i = 1; i <= length; i++) {
+
+		// variable that will be pushed to stack
+		// start as string so we can add fizz and/or buzz if needed
 		let testInput = '';
+
+		// % 3 first so if we need both 'fizz' and 'buzz', we get 'fizzbuzz' in correct order
 		if (i % 3 === 0) testInput += 'fizz';
 		if (i % 5 === 0) testInput += 'buzz';
+
+		// if no string needed, just push element, which happens to be the index
 		fizzBuzzArray.push(testInput === '' ? i : testInput);
 	}
 
